@@ -196,18 +196,8 @@ class OrderResource extends Resource
                 ->searchable()
                 ->sortable(),
                 Tables\Columns\TextColumn::make('payment_status')
-                ->label('Payment Status')
-                ->searchable()
-                ->sortable(),
-                Tables\Columns\SelectColumn::make('staus')
-                ->options([
-                    'new' => 'New',
-                    'processing' => 'Processing',
-                    'shipped' => 'Shipped',
-                    'delivered' => 'Delivered',
-                    'picked' => 'Picked Up',
-                    'cancelled' => 'Cancelled'
-                ]),
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('staus'),
                 Tables\Columns\TextColumn::make('currency')
                     ->searchable()
                     ->sortable(),
