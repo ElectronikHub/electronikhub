@@ -6,7 +6,25 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+        fontFamily: {
+            // sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            primary: ['"Archivo Black"'],
+            secondary: ['"Raleway"'],
+            tertiary: ['"Lora"'],
+
+        },
+        minHeight: {
+            'screen': '75vh',
+            'full' : '100vh',
+          },
+          colors: {
+            'primary': '#243c5a',
+            'secondary': '#e18935',
+            'background': '#EEF0F2',
+            'header': '#f5f5f5',
+          },
+    },
   },
   plugins: [],
 }
