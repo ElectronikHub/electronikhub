@@ -7,6 +7,13 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
 ## About ElectronikHub
 
-This project is based on laravel frameworkds that lets the user see our services and products. 
+This project is based on laravel frameworks that lets the user see our services and products. 
+
+<img src="public/img/fdh.jpeg" alt="Total Downloads">
+
+It also serves as online shopping for our company products such as Arduino microcontrollers, Sensors, wires and more.
+
+<img src="public/img/Screenshot_29-8-2024_145831_192.168.18.165.jpeg" alt="Total Downloads">
