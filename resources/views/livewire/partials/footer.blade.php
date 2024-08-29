@@ -2,7 +2,7 @@
     <div class="w-full mx-auto md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
                 <a href="/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse h-20">
-                    {{-- <x-app-logo class="block w-10 fill-current" /> --}}logo
+                    @livewire('partials.logo')
                 </a>
 
             <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">

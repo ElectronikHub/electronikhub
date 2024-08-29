@@ -11,7 +11,7 @@
 
       <!-- Button Group -->
       <div class="flex items-center gap-x-1 md:gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
-        <a class="py-2 cursor-pointer px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl bg-primary border border-primary text-white hover:bg-secondary focus:outline-none focus:secondary disabled:opacity-50 disabled:pointer-events-none">
+        <a href="/login" class="py-2 cursor-pointer px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl bg-primary border border-primary text-white hover:bg-secondary focus:outline-none focus:secondary disabled:opacity-50 disabled:pointer-events-none">
           Sign In
         </a>
         <a class="py-2 cursor-pointer px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-secondary text-white hover:bg-primary focus:outline-none focus:bg-secondary transition disabled:opacity-50 disabled:pointer-events-none">
@@ -37,7 +37,7 @@
             <a class="inline-block text-primary hover:text-secondary focus:outline-none focus:text-secondary hover:border-b-secondary hover:border-b {{ (request()->is('services')) ? 'active text-secondary border-b-2 border-secondary' : '' }}" href="/services">Services</a>
           </div>
           <div>
-            <a class="inline-block text-primary hover:text-secondary focus:outline-none focus:text-secondary hover:border-b-secondary hover:border-b {{ (request()->is('products')) ? 'active text-secondary border-b-2 border-secondary' : '' }}" href="products">Products</a>
+            <a class="inline-block text-primary hover:text-secondary focus:outline-none focus:text-secondary hover:border-b-secondary hover:border-b {{ (request()->is('products')) ? 'active text-secondary border-b-2 border-secondary' : '' }}" href="/products">Products</a>
           </div>
           <div>
             <a class="inline-block text-primary hover:text-secondary focus:outline-none focus:text-secondary hover:border-b-secondary hover:border-b {{ (request()->is('about')) ? 'active text-secondary border-b-2 border-secondary' : '' }}" href="/about">About</a>

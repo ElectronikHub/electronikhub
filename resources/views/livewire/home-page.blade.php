@@ -206,6 +206,7 @@
 
 
     {{-- products --}}
+
     <div class="">
 
         <div class="mb-16">
@@ -213,20 +214,24 @@
             <h1 class="text-3xl font-extrabold text-primary text-center uppercase font-secondary">Empower Your Projects with Our Premium Selection of Products!</h1>
 
         </div>
-        <div class="flex flex-col w-full gap-5 my-5">
-            <div class="flex flex-col w-full gap-5 my-10">
+
+
+        <div class="flex w-full gap-5 my-5">
+            <div class="flex w-full gap-5 my-10">
+                @foreach ($products as $product)
                 <div class="container page-wrapper">
                         <div class="page-inner">
                             <div class="row">
-                                <div class="el-wrapper bg-hero2">
+
+                                <div class="el-wrapper bg-hero2" wire:key="{{ $product ->id }}">
                                     <!-- Box-up section -->
                                     <div class="box-up">
-                                        <img class="img" src="" alt="name">
+                                        <img class="img" src="{{ url('storage',  $product -> images) }}" alt="name">
                                         <div class="img-info">
                                             <div class="info-inner">
-                                                <span class="p-name">name</span>
+                                                <span class="p-name uppercase">{{ $product -> name }}</span>
                                             </div>
-                                            <div class="a-size">Available stock: <span class="size">2</span></div>
+                                            <div class="a-size">{{ $product -> description }}</div>
                                         </div>
                                     </div>
 
@@ -236,7 +241,7 @@
                                             <div class="h-bg-inner"></div>
                                         </div>
                                             <a class="cart bg-secondary" href="#ex2" rel="modal:open">
-                                                <span class="price text-primary"><span>₱</span>100</span>
+                                                <span class="price text-primary"><span>₱</span>{{ $product -> price }}</span>
                                                 <span class="add-to-cart">
                                                     <div class="txt">
                                                         <p class="hover:bg-primary py-2 rounded hover:text-secondary px-2">Add to Cart</p>
@@ -246,11 +251,15 @@
                                             </a>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                 </div>
+                @endforeach
             </div>
         </div>
+
+
     </div>
     {{-- products --}}
 
