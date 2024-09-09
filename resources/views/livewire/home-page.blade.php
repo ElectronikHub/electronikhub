@@ -1,7 +1,7 @@
-<div class="container flex justify-center items-center flex-col m-auto pt-40 gap-20">
+<div class="container flex justify-center items-center flex-col m-auto pt-32 gap-20">
 
     {{-- hero-start --}}
-    <div class="max-w-4xl">
+    <div class="max-w-4xl w-full transition-opacity ease-in duration-300">
 
         <div class="lg:px-8 m-auto border bg-hero2 sm:px-10 ">
 
@@ -12,10 +12,10 @@
                       </div>
                   </div>
                   <div class="text-center flex justify-center flex-col items-center">
-                      <h1 class="mb-4 text-xl font-extrabold md:text-5xl lg:text-5xl">Empowering Innovation with <span class="text-transparent bg-clip-text bg-gradient-to-r to-blue-600 from-primary">Arduino Technology</span> </h1>
+                      <h1 class="mb-4 text-xl font-extrabold md:text-5xl lg:text-5xl">Creating a Culture of <br><span class="text-transparent bg-clip-text bg-gradient-to-r to-blue-600 from-primary">Technological Innovation</span> </h1>
                       <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Innovate, Connect, and Inspire!</p>
                       <div class="mt-10 flex items-center justify-center gap-x-6">
-                      <a href="#" class="cursor-pointer rounded-3xl bg-primary text-white text-center flex items-center text-nowrap justify-center px-3 py-2">Get started</a>
+                      <a href="#" class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 cursor-pointer rounded-3xl bg-primary text-white text-center flex items-center text-nowrap justify-center px-3 py-2">Get started</a>
                       <a href="#" class="flex w-40 hover:bg-transparent hover:text-secondary hover:border-0 text-nowrap">Learn more <span aria-hidden="true">→</span></a>
                       </div>
                   </div>
@@ -34,7 +34,7 @@
 
         <div class=" md:flex justify-between px-5 mx-auto">
 
-            <div class="flex flex-col gap-10 w-3/4 md:w-1/2 justify-center sm:justify-start mx-auto">
+            <div class="flex flex-col-reverse w-full gap-10 sm:w-3/4 md:w-1/2 justify-center sm:flex-col sm:justify-start mx-auto">
                 <p class="border-l-4 border-primary px-6 ml-3 text-justify">
                     Electronik Hub, founded in 2016, is a premier Arduino-based electronics store in Cabanatuan City, Philippines. We offer high-quality, affordable products to hobbyists, students, and professionals, fostering innovation and excellence
                 </p>
@@ -43,16 +43,7 @@
                     <img class="self-center h-40" src="./img/arduinopic.png" alt="">
                 </div>
 
-                <div class="flex flex-col gap-5 text-primary">
-                    <div class="flex items-center gap-4">
-                        <div class="bg-secondary p-3 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#243c5a"><path d="M480-120 80-600l120-240h560l120 240-400 480Zm-95-520h190l-60-120h-70l-60 120Zm55 347v-267H218l222 267Zm80 0 222-267H520v267Zm144-347h106l-60-120H604l60 120Zm-474 0h106l60-120H250l-60 120Z"/></svg>
-                        </div>
-                        <div>
-                            <h4 class="my-1 text-gray-500">"Creating a Culture of Technological Innovation"</h4>
-                        </div>
-
-                    </div>
+                <div class="sm:flex flex-col gap-5 text-primary hidden">
 
                     <div class="flex items-center gap-4">
                         <div class="bg-secondary p-3 rounded-full">
@@ -217,7 +208,7 @@
 
 
         <div class="flex w-full gap-5 my-5">
-            <div class="flex w-full gap-5 my-10">
+            <div class="flex w-full  flex-col sm:flex-row  gap-5 sm:my-10">
                 @foreach ($products as $product)
                 <div class="container page-wrapper">
                         <div class="page-inner">

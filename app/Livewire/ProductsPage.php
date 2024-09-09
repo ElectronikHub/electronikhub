@@ -2,15 +2,19 @@
 
 namespace App\Livewire;
 
+use App\Helpers\CartManagement;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+
 
 class ProductsPage extends Component
 {
+    use LivewireAlert;
 
     use WithPagination;
     #[Url]
@@ -20,6 +24,17 @@ class ProductsPage extends Component
     public $selected_categories = [];
     #[Url]
     public $selected_brands = [];
+
+    //add to cart
+    public function addToCart($product_id) {
+        $total_count = CartManagement::addCartItems($product_id);
+
+        $this->alert('success', 'Added to Cart!', [
+            'position' => 'top',
+            'timer' => 3000,
+            'toast' => true,
+           ]);
+    }
 
 
     public function render()

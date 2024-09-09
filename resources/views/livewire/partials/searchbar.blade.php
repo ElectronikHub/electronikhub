@@ -1,6 +1,6 @@
-<div id="search-bar">
+<div id="search-bar z-50">
     <form role="search">
-        <input type="search" class="rounded-xl px-5" wire:model.live="search"  placeholder="Search..."  autocomplete="off"/>
+        <input type="search" class="rounded-xl focus:transition focus:ease-linear px-5  border drop-shadow-2xl focus:w-80 py-1" wire:model.live="search"  placeholder="Search..."  autocomplete="off"/>
     </form>
 
     @foreach ($products as $res)

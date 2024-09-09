@@ -13,18 +13,25 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
 
 
+
     </head>
     <body>
+
         @livewire('partials.navbar')
         <main>
+
             {{ $slot }}
         </main>
         @livewire('partials.footer')
         @livewireScripts
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <x-livewire-alert::scripts />
+
     </body>
 </html>

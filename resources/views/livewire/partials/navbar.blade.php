@@ -1,53 +1,120 @@
-<!-- ========== HEADER ========== -->
-<header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7 font-secondary shadow-lg border-b fixed bg-white">
-    <nav class="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 mx-auto">
-      <div class="md:col-span-3">
-        <!-- Logo -->
-        <a class="flex-none  w-40 rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80" href="../templates/creative-agency/index.html" aria-label="Preline">
-            @livewire('partials.logo2')
-        </a>
-        <!-- End Logo -->
-      </div>
+    <nav x-data="{ isOpen: false }" class="bg-white font-secondary text-primary drop-shadow-2xl fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div class="relative flex items-center justify-between h-16">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button-->
+              <button @click = "isOpen = !isOpen" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
 
-      <!-- Button Group -->
-      <div class="flex items-center gap-x-1 md:gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
-        <a href="/login" class="py-2 cursor-pointer px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl bg-primary border border-primary text-white hover:bg-secondary focus:outline-none focus:secondary disabled:opacity-50 disabled:pointer-events-none">
-          Sign In
-        </a>
-        <a class="py-2 cursor-pointer px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-secondary text-white hover:bg-primary focus:outline-none focus:bg-secondary transition disabled:opacity-50 disabled:pointer-events-none">
-          Contact us
-        </a>
+                <svg x-show="!isOpen" x-bind:class=" !isOpen ? 'block' : 'hidden'" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
 
-        <div class="md:hidden">
-          <button type="button" class="hs-collapse-toggle size-[38px] flex justify-center items-center text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" id="hs-navbar-hcail-collapse" aria-expanded="false" aria-controls="hs-navbar-hcail" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-hcail">
-            <svg class="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
-            <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-          </button>
+                <svg x-show="isOpen" x-bind:class=" isOpen ? 'block' : 'hidden'" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div class="flex-shrink-0 flex items-center">
+                <div class="sm:block w-28">
+                    <a href="">@livewire('partials.logo2')</a>
+
+                </div>
+              </div>
+              <div class="hidden sm:block sm:ml-6">
+                <div class="flex justify-between w-full font-primary">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a href="/" class="hover:bg-secondary px-3 py-2 rounded-md text-sm font-medium  {{ (request()->is('/')) ? 'active text-secondary border-b-2 border-secondary' : '' }}">Home</a>
+
+                  <a href="/services" class="hover:bg-secondary px-3 py-2 rounded-md text-sm font-medium  {{ (request()->is('services')) ? 'active text-secondary border-b-2 border-secondary' : '' }}">Services</a>
+
+                  <a href="/products" class="hover:bg-secondary px-3 py-2 rounded-md text-sm font-medium  {{ (request()->is('products')) ? 'active text-secondary border-b-2 border-secondary' : '' }}">Products</a>
+
+                  <a href="/about" class="hover:bg-secondary  px-3 py-2 rounded-md text-sm font-medium  {{ (request()->is('about')) ? 'active text-secondary border-b-2 border-secondary' : '' }}">About</a>
+                </div>
+              </div>
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-3"
+            x-data="{
+                open: false,
+                toggle() {
+                    if (this.open) {
+                        return this.close()
+                    }
+
+                    this.$refs.button.focus()
+
+                    this.open = true
+                },
+                close(focusAfter) {
+                    if (! this.open) return
+
+                    this.open = false
+
+                    focusAfter && focusAfter.focus()
+                }
+            }"
+            x-on:keydown.escape.prevent.stop="close($refs.button)"
+            x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+            x-id="['dropdown-button']">
+                <div class="hidden sm:block">
+                    @livewire('partials.searchbar')
+                </div>
+
+              <button  x-ref="button"
+              x-on:click="toggle()"
+              :aria-expanded="open"
+              :aria-controls="$id('dropdown-button')"
+              type="button" class="">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#243c5a" class="size-10 p-2 flex items-center justify-center rounded-full hover:fill-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-secondary focus:ring-white">
+                    <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
+                  </svg>
+              </button>
+
+              <div
+              x-ref="panel"
+              x-show="open"
+              x-transition.origin.top.left
+              x-on:click.outside="close($refs.button)"
+              :id="$id('dropdown-button')"
+              style="display: none;"
+              class="absolute float-right mt-40 ml-40 w-40 rounded-md bg-white shadow-md"
+          >
+              <a href="/cart" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
+                  Cart
+              </a>
+
+              <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
+                  Orders
+              </a>
+
+              <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
+                  <span class="text-red-600">Login</span>
+              </a>
+          </div>
+
+
+            </div>
+          </div>
         </div>
-      </div>
-      <!-- End Button Group -->
 
-      <!-- Collapse -->
-      <div id="hs-navbar-hcail" class="font-primary hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block md:w-auto md:basis-auto md:order-2 md:col-span-6" aria-labelledby="hs-navbar-hcail-collapse">
-        <div class="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
-          <div>
-            <a class="inline-block text-primary hover:text-secondary focus:outline-none focus:text-secondary hover:border-b-secondary hover:border-b {{ (request()->is('/')) ? 'active text-secondary border-b-2 border-secondary' : '' }}" href="/" aria-current="page">Home</a>
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div x-show="isOpen" class="sm:hidden" id="mobile-menu">
+
+          <div class="px-2 pt-2 pb-3 space-y-1 flex flex-col font-primary">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="/" class="hover:bg-secondary px-3 py-2 rounded-md text-sm font-medium  {{ (request()->is('/')) ? 'active text-secondary border-b-2 border-secondary' : '' }}">Home</a>
+
+            <a href="/services" class="hover:bg-secondary px-3 py-2 rounded-md text-sm font-medium  {{ (request()->is('services')) ? 'active text-secondary border-b-2 border-secondary' : '' }}">Services</a>
+
+            <a href="/products" class="hover:bg-secondary px-3 py-2 rounded-md text-sm font-medium  {{ (request()->is('products')) ? 'active text-secondary border-b-2 border-secondary' : '' }}">Products</a>
+
+            <a href="/about" class="hover:bg-secondary px-3 py-2 rounded-md text-sm font-medium  {{ (request()->is('about')) ? 'active text-secondary border-b-2 border-secondary' : '' }}">About</a>
           </div>
+
           <div>
-            <a class="inline-block text-primary hover:text-secondary focus:outline-none focus:text-secondary hover:border-b-secondary hover:border-b {{ (request()->is('services')) ? 'active text-secondary border-b-2 border-secondary' : '' }}" href="/services">Services</a>
-          </div>
-          <div>
-            <a class="inline-block text-primary hover:text-secondary focus:outline-none focus:text-secondary hover:border-b-secondary hover:border-b {{ (request()->is('products')) ? 'active text-secondary border-b-2 border-secondary' : '' }}" href="/products">Products</a>
-          </div>
-          <div>
-            <a class="inline-block text-primary hover:text-secondary focus:outline-none focus:text-secondary hover:border-b-secondary hover:border-b {{ (request()->is('about')) ? 'active text-secondary border-b-2 border-secondary' : '' }}" href="/about">About</a>
-          </div>
-          <div>
-            <a class="inline-block text-primary hover:text-secondary focus:outline-none focus:text-secondary hover:border-b-secondary hover:border-b {{ (request()->is('blog')) ? 'active text-secondary border-b-2 border-secondary' : '' }}" href="/blog">Blog</a>
+            <button class="block sm:hidden ml-3 mb-3 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 cursor-pointer rounded-3xl bg-primary text-white text-center items-center text-nowrap justify-center px-3 py-2 hover:bg-secondary">Contact Us</button>
           </div>
         </div>
-      </div>
-      <!-- End Collapse -->
-    </nav>
-</header>
-  <!-- ========== END HEADER ========== -->
+      </nav>
